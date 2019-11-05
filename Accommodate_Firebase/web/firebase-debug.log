@@ -1,0 +1,25 @@
+[debug] [2019-11-05T22:05:21.997Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T22:05:21.999Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Katie\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-11-05T22:05:21.999Z] CLI Version:   7.6.2
+[debug] [2019-11-05T22:05:21.999Z] Platform:      win32
+[debug] [2019-11-05T22:05:21.999Z] Node Version:  v10.16.3
+[debug] [2019-11-05T22:05:22.001Z] Time:          Tue Nov 05 2019 22:05:21 GMT+0000 (Greenwich Mean Time)
+[debug] [2019-11-05T22:05:22.001Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T22:05:22.001Z] 
+[debug] [2019-11-05T22:05:22.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T22:05:22.013Z] > authorizing via signed-in user
+[debug] [2019-11-05T22:05:22.014Z] [iam] checking project accommodate-51e89 for permissions ["firebase.projects.get"]
+[debug] [2019-11-05T22:05:22.016Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/accommodate-51e89:testIamPermissions  
+
+[debug] [2019-11-05T22:05:22.228Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-05T22:05:22.230Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/accommodate-51e89  
+ 
+[debug] [2019-11-05T22:05:22.567Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Source\Accommodate_Firebase\web'...
+[info] 
+[debug] [2019-11-05T22:05:22.608Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/accommodate-51e89/webApps/-/config  
+ 
+[debug] [2019-11-05T22:05:23.283Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./public
+[info] +  hosting: Local server: http://localhost:5000
