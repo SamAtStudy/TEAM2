@@ -114,39 +114,26 @@ var firestore = firebase.firestore();
 var settings = {timestampsInSnapshots: true};
 firestore.settings(settings);
 
-// // Opens up Profile Window when name is clicked
-// function OpenProfileWindow() {
-//   var popup = document.getElementById("profileWindow");
-//   popup.classList.toggle("show");
-// }
 
-// // Open up the Profile Window
-// var modal = document.getElementById("profileWindow");
-// // Open the modal by clicking the username
-// var modalButton = document.getElementById("user-name");
-// // Close button
-// var closeButton = document.getElementsByClassName("closeButton")[0];
+var modal = document.getElementById('mdl-custom-modal'),
+	btn = document.getElementById("mdl-custom-btn"),
+	close = document.getElementsByClassName("mdl-custom-close")[0];
 
-// // Listen for open click
-// modalButton.addEventListener('click', openModal);
-// // Listen for close click
-// closeButton.addEventListener('click', closeModal);
-// // Listen for outside click
-// window.addEventListener('click', clickOutside);
+btn.onclick = function() {
+	'use strict';
+	modal.style.display = "block";
+}
 
-// // Function to open modal
-// function openModal() {
-//   modal.style.display = 'block';
-// }
+close.onclick = function() {
+	'use strict';	
+	modal.style.display = "none";
+}
 
-// // Function to close modal
-// function closeModal() {
-//   modal.style.display = 'none';
-// }
-
-// // Function to close modal if outside click
-// function outsideClick(e) {
-//   if(e.target == modal){
-//     modal.style.display = 'none';
-//   }  
-// }
+// Use if you whant to close modal when click outside of modal window
+window.onclick = function(event) {
+	'use strict';
+	
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

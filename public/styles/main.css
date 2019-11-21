@@ -206,30 +206,31 @@ main, #messages-card {
   animation: fadeIn 1s;
 }
 
-/* .modal {
+.modal {
   position: fixed;
   left: 0;
   top: 0;
   height: 750px;
   width: 100px;
   overflow: auto;
-} */
+  background-color: rgba(0,0,0,0.4);
+}
 
 .modal-content {
   background-color: rgb(129, 185, 216);
-  /* margin: 10%; */
+  margin: 10%;
   padding: 20px;
   height: 100px;
   width: 100px;
-  /* animation-name: modalopen;
-  animation-duration: 1s; */
+  animation-name: modalopen;
+  animation-duration: 1s;
   width: 25%;
   margin-right: 15%;
-  /* position: fixed;
+  position: fixed;
   bottom: 500px;
   right: 10px;
   width: 300px; 
-  box-shadow: 0 5px 8px 0 rbga(0,0,0,0.2) 0 7px 20px 0 rbga(0,0,0,0.2); */
+  box-shadow: 0 5px 8px 0 rbga(0,0,0,0.2) 0 7px 20px 0 rbga(0,0,0,0.2);
 }
 
 .closeButton {

@@ -1,0 +1,26 @@
+[debug] [2019-11-21T14:00:12.181Z] ----------------------------------------------------------------------
+[debug] [2019-11-21T14:00:12.184Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Katie\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only hosting
+[debug] [2019-11-21T14:00:12.184Z] CLI Version:   7.6.2
+[debug] [2019-11-21T14:00:12.184Z] Platform:      win32
+[debug] [2019-11-21T14:00:12.185Z] Node Version:  v10.16.3
+[debug] [2019-11-21T14:00:12.186Z] Time:          Thu Nov 21 2019 14:00:12 GMT+0000 (Greenwich Mean Time)
+[debug] [2019-11-21T14:00:12.186Z] ----------------------------------------------------------------------
+[debug] [2019-11-21T14:00:12.186Z] 
+[debug] [2019-11-21T14:00:12.202Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-21T14:00:12.203Z] > authorizing via signed-in user
+[debug] [2019-11-21T14:00:12.203Z] [iam] checking project accommodate-51e89 for permissions ["firebase.projects.get"]
+[debug] [2019-11-21T14:00:12.206Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-21T14:00:12.206Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-21T14:00:12.308Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-21T14:00:12.315Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/accommodate-51e89:testIamPermissions  
+
+[debug] [2019-11-21T14:00:13.038Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-21T14:00:13.041Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/accommodate-51e89  
+ 
+[debug] [2019-11-21T14:00:13.268Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-21T14:00:13.273Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/accommodate-51e89/webApps/-/config  
+ 
+[debug] [2019-11-21T14:00:14.144Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./public
+[info] +  hosting: Local server: http://localhost:5000

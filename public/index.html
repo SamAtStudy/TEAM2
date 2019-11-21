@@ -62,7 +62,7 @@
         </div>
         <div id="user-container">
           <div hidden id="user-pic"></div>
-          <div hidden id="user-name" onclick="OpenProfileWindow()"></div>
+          <div hidden id="user-name"></div>
           <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
             Sign-out
           </button>
@@ -72,33 +72,50 @@
         </div>
     </header>
 
-
-
-    <div class="container demo">
-      <div class="text-center">
-        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
-          Open Profile
-        </button>
-      </div>
-      <!-- Modal -->
-      <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                  aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
-            </div>
-            <div class="modal-body">
-              <p>Sidebar</p>
-            </div>
-          </div>
+    <!-- <div id="openProfile">
+      <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user-name">
+        <div class="dropdown user user-menu open">
+          <ul class="dropdown-menu">
+            <li class="user-header">
+              <img src="" alt="User Image" class="img-circle">
+              <p>Sarah Pugh</p>
+              <small>Landlord</small>
+            </li>
+            <li id="user">Sarah Pugh</li>
+            <li id="emailAddress">sarah.pugh1999@gmail.com</li>
+            <li id="phoneNumber">0857034623</li>
+          </ul>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <!-- Right aligned menu below button -->
+    <!-- <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+      <i class="material-icons">more_vert</i>
+    </button> -->
+
+
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user-name">
+      <div>
+        <li class="user-header">
+          <!-- <img src="user-pic" alt="User Image" class="img-circle"> -->
+          <h3 class="text-center">Sarah Pugh</h3>
+        </li>
+        <li class="text-center" style="color:#949494">Landlord</li>
+      </div>
+      <div>
+        <li class="text-center mdl-list__item" style="color:#949494">Email Address:</li>
+        <li class="text-center mdl-list__item">sarah.pugh1999@gmail.com</li>
+      </div>
+      <div>
+        <li class="text-center mdl-list__item" style="color:#949494">Phone Number:</li>
+        <li class="text-center mdl-list__item">0857034623</li>
+      </div>
+    </ul>
+
 
     <!-- Feed -->
-    <div class='col d-flex justify-content-center mt-5'
+    <!-- <div class='col d-flex justify-content-center mt-5'
       style="background-color: white; font-family: 'Roboto', sans-serif;">
       <div id="Property_Card" class='card bg-light border-dark mb-3' style="width: 60%;justify-content: center; ">
         <div class="card-header">College: <i>Maynooth University</i></div>
@@ -121,8 +138,31 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+
+    <!-- <div class="container demo">
+      <div class="text-center">
+        <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#profileWindow"
+          style="float:right; margin-top:10px;">
+          Open Profile
+        </button>
+      </div>
+      Modal
+      <div class="modal right fade" id="profileWindow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                  aria-hidden="true">&times;</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
   </div>
+
 
   <!-- Import and configure the Firebase SDK -->
   <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
