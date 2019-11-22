@@ -1,0 +1,74 @@
+body{
+    background: rgb(34,32,71);
+    background: linear-gradient(90deg, rgba(34,32,71,1) 1%, rgba(205,205,208,1) 25%, rgba(147,226,242,1) 100%);
+}
+.col{
+    margin-top: 80px;
+
+
+}
+#Property_Card{
+    background: rgba(255, 255, 255, 0.5);
+    float: left;
+
+    width: 600px;
+    border-width:2px;
+    padding: 15px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+    border-style:solid;
+    border-color:darkslategrey;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.card-header{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.row{
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+    padding-bottom: 10px;
+
+}
+.card-body{
+    padding-left: 10%;
+}
+
+.card-body:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+figure{
+
+    -webkit-transition: all 0.7s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 0.7s ease;
+    -ms-transition: all 0.7s ease;
+    text-indent: 0px;
+    text-align: center;
+    padding: 5px;
+    z-index: 100;
+}
+
+figure :hover {
+    -webkit-transform: scale(1.5); -moz-transform:scale(1.5); -o-transform:scale(1.5);  -ms-transform:scale(1.5);
+    box-shadow: 0 2px 3px #666;
+}
+
+figure :focus {
+    -webkit-transform: rotate(-3deg) scale(2.5); -moz-transform: rotate(-3deg) scale(2.5); -o-transform: rotate(-3deg) scale(2.5); -ms-transform: rotate(-3deg) scale(2.5);
+    box-shadow: 0 2px 3px #666;
+}
+
