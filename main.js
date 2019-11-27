@@ -30,6 +30,14 @@ function getUserName() {
 }
 
 // Returns the signed-in user's email
+function getUserEmail() {
+  return firebase.auth().currentUser.email;
+}
+
+//Returns the signed-in user's email
+function getUserPhoneNumber() {
+  return firebase.auth().currentUser.phoneNumber;
+}
 
 // Returns true if a user is signed-in.
 function isUserSignedIn() {
@@ -39,15 +47,19 @@ function isUserSignedIn() {
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
 function authStateObserver(user) {
   if (user) { // User is signed in!
-    // Get the signed-in user's profile pic and name.
+    // Get the signed-in user's profile information.
     var profilePicUrl = getProfilePicUrl();
     var userName = getUserName();
+    var userEmail = getUserEmail();
+    var userPhoneNumber = getUserPhoneNumber();
 
-    // Set the user's profile pic and name.
+    // Set the user's profile information.
     userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
     userPicProfileElement.src = addSizeToGoogleProfilePic(profilePicUrl) ;
     userNameElement.textContent = userName;
     userNameProfileElement.textContent = userName;
+    userEmailElement.textContent = userEmail;
+    userPhoneNumberElement.textContent = userPhoneNumber;
 
     // Show user's profile and sign-out button.
     userNameElement.removeAttribute('hidden');
@@ -106,6 +118,8 @@ var userNameProfileElement = document.getElementById('user-name-profile');
 var signInButtonElement = document.getElementById('sign-in');
 var signOutButtonElement = document.getElementById('sign-out');
 var signInSnackbarElement = document.getElementById('must-signin-snackbar');
+var userEmailElement = document.getElementById('user-email');
+var userPhoneNumberElement = document.getElementById('user-phone-number');
 
 // Saves message on form submit.
 // messageFormElement.addEventListener('submit', onMessageFormSubmit);
