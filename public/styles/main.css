@@ -286,3 +286,10 @@ main, #messages-card {
   border-bottom-color: #EEEEEE;
   background-color: #FAFAFA;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

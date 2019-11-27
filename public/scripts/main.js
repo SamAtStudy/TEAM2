@@ -29,6 +29,8 @@ function getUserName() {
   return firebase.auth().currentUser.displayName;
 }
 
+// Returns the signed-in user's email
+
 // Returns true if a user is signed-in.
 function isUserSignedIn() {
   return !!firebase.auth().currentUser;
@@ -43,7 +45,9 @@ function authStateObserver(user) {
 
     // Set the user's profile pic and name.
     userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
+    userPicProfileElement.src = addSizeToGoogleProfilePic(profilePicUrl) ;
     userNameElement.textContent = userName;
+    userNameProfileElement.textContent = userName;
 
     // Show user's profile and sign-out button.
     userNameElement.removeAttribute('hidden');
@@ -96,7 +100,9 @@ checkSetup();
 
 // Shortcuts to DOM Elements.
 var userPicElement = document.getElementById('user-pic');
+var userPicProfileElement = document.getElementById('user-pic-profile');
 var userNameElement = document.getElementById('user-name');
+var userNameProfileElement = document.getElementById('user-name-profile');
 var signInButtonElement = document.getElementById('sign-in');
 var signOutButtonElement = document.getElementById('sign-out');
 var signInSnackbarElement = document.getElementById('must-signin-snackbar');
@@ -110,30 +116,30 @@ signInButtonElement.addEventListener('click', signIn);
 initFirebaseAuth();
 
 // Remove the warning about timstamps change. 
-var firestore = firebase.firestore();
-var settings = {timestampsInSnapshots: true};
-firestore.settings(settings);
+// var firestore = firebase.firestore();
+// var settings = {timestampsInSnapshots: true};
+// firestore.settings(settings);
 
 
-var modal = document.getElementById('mdl-custom-modal'),
-	btn = document.getElementById("mdl-custom-btn"),
-	close = document.getElementsByClassName("mdl-custom-close")[0];
+// var modal = document.getElementById('mdl-custom-modal'),
+// 	btn = document.getElementById("mdl-custom-btn"),
+// 	close = document.getElementsByClassName("mdl-custom-close")[0];
 
-btn.onclick = function() {
-	'use strict';
-	modal.style.display = "block";
-}
+// btn.onclick = function() {
+// 	'use strict';
+// 	modal.style.display = "block";
+// }
 
-close.onclick = function() {
-	'use strict';	
-	modal.style.display = "none";
-}
+// close.onclick = function() {
+// 	'use strict';	
+// 	modal.style.display = "none";
+// }
 
-// Use if you whant to close modal when click outside of modal window
-window.onclick = function(event) {
-	'use strict';
+// // Use if you whant to close modal when click outside of modal window
+// window.onclick = function(event) {
+// 	'use strict';
 	
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
