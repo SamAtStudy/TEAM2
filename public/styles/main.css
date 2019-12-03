@@ -293,3 +293,36 @@ main, #messages-card {
   margin-right: auto;
   width: 50%;
 }
+
+.demo-card-wide.mdl-card {
+  width: 640px;
+  height: 300px;
+}
+
+.mdl-card__actions {
+  outline: skyblue solid 5px;
+  z-index: 4;
+}
+
+.mdl-button {
+  margin-left: 10px ;  
+}
+
+.demo-card-wide {
+  height: 200px;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 64px;
+  background-color:indigo;
+}
+
+.mdl-card__title-text {
+  position: relative;
+  top: 6px;
+}
+
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}

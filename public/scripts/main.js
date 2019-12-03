@@ -1,5 +1,8 @@
 'use strict';
-
+window.onload = function () {
+  this.openDialog();
+ // this.closeModal();
+}
 // Signs-in Accommodate.
 function signIn() {
   // Sign into Firebase using popup auth & Google as the identity provider.
@@ -39,6 +42,17 @@ function getUserPhoneNumber() {
   return firebase.auth().currentUser.phoneNumber;
 }
 
+// Returns the sign-in user's ID
+function getUserID(){
+  // return firebase.auth().currentUser.uid;
+  const authPromise=()=>{
+    return new Promise((resolve, reject)=>{
+      const user = firebase.auth().currentUser;
+      console.log(user.email)
+    })
+  }
+}
+
 // Returns true if a user is signed-in.
 function isUserSignedIn() {
   return !!firebase.auth().currentUser;
@@ -55,7 +69,7 @@ function authStateObserver(user) {
 
     // Set the user's profile information.
     userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
-    userPicProfileElement.src = addSizeToGoogleProfilePic(profilePicUrl) ;
+    userPicProfileElement.src = addSizeToGoogleProfilePic(profilePicUrl);
     userNameElement.textContent = userName;
     userNameProfileElement.textContent = userName;
     userEmailElement.textContent = userEmail;
@@ -65,7 +79,7 @@ function authStateObserver(user) {
     userNameElement.removeAttribute('hidden');
     userPicElement.removeAttribute('hidden');
     signOutButtonElement.removeAttribute('hidden');
-
+    showModal.removeAttribute('hidden');
     // Hide sign-in button.
     signInButtonElement.setAttribute('hidden', 'true');
 
@@ -74,6 +88,7 @@ function authStateObserver(user) {
     userNameElement.setAttribute('hidden', 'true');
     userPicElement.setAttribute('hidden', 'true');
     signOutButtonElement.setAttribute('hidden', 'true');
+    showModal.setAttribute('hidden', true);
 
     // Show sign-in button.
     signInButtonElement.removeAttribute('hidden');
@@ -102,8 +117,8 @@ function toggleButton() {
 function checkSetup() {
   if (!window.firebase || !(firebase.app instanceof Function) || !firebase.app().options) {
     window.alert('You have not configured and imported the Firebase SDK. ' +
-        'Make sure you go through the codelab setup instructions and make ' +
-        'sure you are running the codelab using `firebase serve`');
+      'Make sure you go through the codelab setup instructions and make ' +
+      'sure you are running the codelab using `firebase serve`');
   }
 }
 
@@ -120,6 +135,8 @@ var signOutButtonElement = document.getElementById('sign-out');
 var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 var userEmailElement = document.getElementById('user-email');
 var userPhoneNumberElement = document.getElementById('user-phone-number');
+var showModal = document.getElementById('modal');
+var userId = getUserID();
 
 // Saves message on form submit.
 // messageFormElement.addEventListener('submit', onMessageFormSubmit);
@@ -129,31 +146,53 @@ signInButtonElement.addEventListener('click', signIn);
 // initialize Firebase
 initFirebaseAuth();
 
-// Remove the warning about timstamps change. 
-// var firestore = firebase.firestore();
-// var settings = {timestampsInSnapshots: true};
-// firestore.settings(settings);
+// Function to open the dialog to choose student or landlord
+function openDialog() {
+  $("sign-in").click(function () {
+    document.getElementById('modal').style.display = "block";
+  })
 
+  if (isUserSignedIn() == true) {
+    document.getElementById('modal').style.display = "none";
+  }
+}
 
-// var modal = document.getElementById('mdl-custom-modal'),
-// 	btn = document.getElementById("mdl-custom-btn"),
-// 	close = document.getElementsByClassName("mdl-custom-close")[0];
+var database = firebase.database();
 
-// btn.onclick = function() {
-// 	'use strict';
-// 	modal.style.display = "block";
-// }
+// Updating status of user to database
+function writeUserData() {
+  var email = getUserEmail();
+  var isLandlord = document.querySelector('input[name="type"]:checked').value;
+  if (isLandlord == 'landlord') {
+    firebase.database().ref('Userdata/' + userId).set({
+      name: getUserName(),
+      email: getUserEmail(),
+      phoneNumber: getUserPhoneNumber(),
+      isLandlord: true,
+      clicked: true
+    })
+  }
+  else {
+    firebase.database().ref('Userdata/' + userId).set({
+      name: getUserName(),
+      email: getUserEmail(),
+      phoneNumber: getUserPhoneNumber(),
+      isLandlord: false,
+      clicked: true
+    })
+  }
+  closeModal();
+}
 
-// close.onclick = function() {
-// 	'use strict';	
-// 	modal.style.display = "none";
-// }
-
-// // Use if you whant to close modal when click outside of modal window
-// window.onclick = function(event) {
-// 	'use strict';
-	
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }
+// Close modal once submit button is clicked
+function closeModal() {
+  var clicked = firebase.database().ref('Userdata/' + userId + '/clicked');
+  clicked.on('value', function(snapshot){
+    if(snapshot.val() == false) {
+      document.getElementById('modal').style.display = 'block';
+    }
+    else {
+      document.getElementById('modal').style.display = 'none';
+    }
+  })
+}

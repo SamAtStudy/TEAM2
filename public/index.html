@@ -71,32 +71,12 @@
         </div>
     </header>
 
-    <!-- <div id="openProfile">
-      <div class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user-name">
-        <div class="dropdown user user-menu open">
-          <ul class="dropdown-menu">
-            <li class="user-header">
-              <img src="" alt="User Image" class="img-circle">
-              <p>Sarah Pugh</p>
-              <small>Landlord</small>
-            </li>
-            <li id="user">Sarah Pugh</li>
-            <li id="emailAddress">sarah.pugh1999@gmail.com</li>
-            <li id="phoneNumber">0857034623</li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- Right aligned menu below button -->
-    <!-- <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
-      <i class="material-icons">more_vert</i>
-    </button> -->
-
+    <!-- Profile opened when the user name is clicked -->
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="user-name">
       <div>
         <li class="user-header">
-          <img id="user-pic-profile" alt="User Image" class="img-circle" height="125" width="100" style="display:block; margin-left: auto; margin-right: auto; width: 50%;">
+          <img id="user-pic-profile" alt="User Image" class="img-circle" height="125" width="100"
+            style="display:block; margin-left: auto; margin-right: auto; width: 50%;">
           <h3 id="user-name-profile" class="text-center"></h3>
         </li>
         <li class="text-center" style="color:#949494">Landlord</li>
@@ -111,32 +91,66 @@
       </div>
     </ul>
 
+    <!-- Form for the user to choose whether they want to be a landlord or a student -->
+    <div hidden id="modal">
+      <h4>Would you like to create and account for a Landlord or Student?</h4>
+      <div>
+        <form>
+          <input id="landlord" type="radio" name="type" value="landlord"> Landlord<br>
+          <input id="student" type="radio" name="type" value="student"> Student<br>
+          <button id="btnSubmit" type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect"
+            onclick="writeUserData();">Submit</button>
+        </form>
+      </div>
+    </div>
 
-    <!-- Feed -->
-    <!-- <div class='col d-flex justify-content-center mt-5'
-      style="background-color: white; font-family: 'Roboto', sans-serif;">
-      <div id="Property_Card" class='card bg-light border-dark mb-3' style="width: 60%;justify-content: center; ">
-        <div class="card-header">College: <i>Maynooth University</i></div>
-        <img width='70%' height='450' class='card-img-top rounded' alt="House" src="design_files/images/house.jpg">
-
-        <div class="card-body">
-          <div class='row'>
-            <div id="Property_Price" class='col-sm'><i class="icon ion-md-card"></i> House Price:
-              <strong>350,000</strong></div>
-            <div id="Number_Rooms" class='col-sm'><i class="icon ion-md-bed"></i> Number Of Beds: <strong>1</strong>
+    <!-- <div class="demo-card-wide mdl-card mdl-shadow--2dp"
+      style="margin-left: auto; margin-right: auto; text-align: center;">
+      <div class="mdl-card__title">
+        <div class="mdl-card__supporting-text">
+          <h4>Would you like to create and account for a Landlord or Student?</h3>
+            <div id="modal">
+              <form>
+                <font size="+1"><input id="landlord" type="radio" name="type" value="landlord"> Landlord<br>
+                  <input id="student" type="radio" name="type" value="student"> Student<br></font>
+                <button id="btnSubmit" type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                  onclick="writeUserData();">Submit</button>
+              </form>
             </div>
-          </div>
-          <div class='row'>
-            <div id="Property_Destination" class='col-sm'>
-              <div id="Property_Distance"><i class="icon ion-md-compass"></i> Distance from College:
-                <strong>2.5km</strong></div>
-            </div>
-            <div id="Landlord_Name" class='col-sm'><i class="icon ion-md-person"></i> Landlord Name: <strong>Sam
-                O'Neil</strong></div>
-          </div>
         </div>
       </div>
     </div> -->
+
+    <!-- Feed to be displayed if the user is a landlord -->
+    <!-- <div id="landlordFeed">
+      <div class="modal-backdrop app-modal-root" role="dialog">
+        <div class="modal" role="dialog" aria-describedby="modalDescription">
+          <div id="Property_Card" class="modal-body app-modal-body">
+
+            <div class="card-header">College: <i>Maynooth University</i></div>
+            <img alt="House" src="house.jpg"> 
+
+
+            <div class="card-body">
+              <div class='row'>
+                <div id="Property_price"><i class="icon ion-md-card"></i> House Price: <strong>350,000</strong></div>
+                <div id="Number_Rooms"><i class="icon ion-md-bed"></i> Number Of Beds: <strong>1</strong></div>
+              </div>
+              <div class='row'>
+                <div id="Property_Destination">
+                  <div id="Property_Distance"><i class="icon ion-md-compass"></i> Distance from College:
+                    <strong>2.5km</strong></div>
+                </div>
+                <div id="Landlord_Name" class='col-sm'><i class="icon ion-md-person"></i> Landlord Name: <strong>Sam
+                    O'Neil</strong></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+
 
   </div>
 
@@ -151,8 +165,10 @@
   <script src="/__/firebase/6.4.0/firebase-firestore.js"></script>
   <script src="/__/firebase/6.4.0/firebase-performance.js"></script>
   <script src="/__/firebase/init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
   <script src="scripts/main.js"></script>
+
 </body>
 
 </html>
